@@ -1,0 +1,18 @@
+@mixin fly() {
+    transition: $transition-base;
+    &:hover {
+        transform: $fly !important;
+    }
+}
+@mixin fly-sm() {
+    transition: $transition-base;
+    &:hover {
+        transform: $fly-sm !important;
+    }
+}
+@mixin fly-lg() {
+    transition: $transition-base;
+    &:hover {
+        transform: $fly-lg !important;
+    }
+}

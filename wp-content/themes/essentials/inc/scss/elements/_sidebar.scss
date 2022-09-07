@@ -1,0 +1,48 @@
+/**
+ * Sidebar
+ */
+.pix-sidebar {
+    position: fixed;
+    width: 360px;
+    right: -380px;
+    top: 0;
+    padding: 10px;
+    z-index: 99999999999;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    pointer-events: none;
+    .sidebar-inner {
+        background: #fff;
+        border-radius: 6px;
+        height: 100%;
+        display: inline-block;
+        position: relative;
+        width:100%;
+        overflow: hidden;
+    }
+    .sidebar-content {
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        transform: translateY(30px);
+    }
+    .pix-close-sidebar {
+        transition: color 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        i {
+            font-size: 22px;
+        }
+    }
+    &.opened {
+        right: 0;
+        opacity: 1;
+        pointer-events: auto;
+        .sidebar-content {
+            transform: translateY(0px);
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .pix-sidebar {
+        width: 100vw;
+        right: -100vh;
+    }
+}

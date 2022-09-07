@@ -1,0 +1,33 @@
+.alert {
+    position: relative;
+    padding: $alert-padding-y $alert-padding-x;
+    margin-bottom: $alert-margin-bottom;
+    border: $alert-border-width solid transparent;
+    @include border-radius($alert-border-radius);
+}
+
+.alert {
+    // Adjust close link position
+    .close, .alert-text-alert-default {
+        color: inherit;
+        &:focus {
+            outline: none;
+        }
+    }
+
+}
+
+@media (max-width: 576px){
+    .alert .close {
+        float: none;
+        width: 100%;
+    }
+}
+// Alternate styles
+//
+// Generate contextual modifier classes for colorizing the alert.
+@each $color, $value in $theme-colors {
+    .alert-#{$color} {
+        @include alert-variant(theme-color-level($color, $alert-bg-level), theme-color-level($color, $alert-border-level), theme-color-level($color, $alert-color-level));
+    }
+}

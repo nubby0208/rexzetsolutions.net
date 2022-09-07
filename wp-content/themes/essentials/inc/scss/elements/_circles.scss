@@ -1,0 +1,117 @@
+.pix-sm-circles, .pix-md-circles, .pix-lg-circles {
+    display: inline-block;
+    .circle-item {
+        line-height: 100%;
+        display: inline-block;
+        border-radius: 100%;
+        overflow: hidden;
+        &:not(.pix-bg-custom) {
+            @if $middle-gradient == 'yes' {
+                background: linear-gradient($gradient-direction, $gradient-primary-1, $gradient-primary-middle, $gradient-primary-2) fixed !important;
+            } @else {
+                background: linear-gradient($gradient-direction, $gradient-primary-1, $gradient-primary-2) fixed !important;
+            }
+            padding: 3px;
+        }
+        .pix-bg-custom {
+            margin-right: 3px;
+        }
+        position: relative;
+        img {
+            -o-object-fit: cover;
+               object-fit: cover;
+            border: 3px solid #fff;
+            transition: $transition-base;
+        }
+        i {
+            line-height: 50px;
+            font-size: 30px;
+            text-align: center;
+            background: #fff;
+            display: inline-block;
+            -o-object-fit: cover;
+               object-fit: cover;
+            border: 3px solid #fff;
+            transition: $transition-base;
+        }
+    }
+    .circle-item:not(:first-child) {
+        margin-left: -30px;
+        transition: margin 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+    &:hover {
+        .circle-item {
+            margin-left: 0;
+            &:hover {
+                img, i {
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+.pix-sm-circles {
+    img, i {
+        width: 60px !important;
+        height: 60px !important;
+    }
+}
+.pix-md-circles {
+    img, i {
+        width: 80px !important;
+        height: 80px !important;
+    }
+}
+.pix-lg-circles {
+    img, i {
+        width: 120px !important;
+        height: 120px !important;
+    }
+}
+
+.pix-circle {
+    line-height: 100%;
+    display: inline-block;
+    padding: 2px;
+    border-radius: 100%;
+    overflow: hidden;
+    &:not(.pix-bg-custom) {
+        background: $gradient-primary-1;
+        background: linear-gradient($gradient-direction, $gradient-primary-1, $gradient-primary-middle, $gradient-primary-2)  !important;
+    }
+    position: relative;
+    img {
+        max-width: 40px;
+        border: 2px solid #fff;
+        transition: $transition-base;
+    }
+    &.circle-48 {
+        min-width: 52px;
+        img {
+            max-width: 48px;
+        }
+    }
+    &:hover {
+        &:hover {
+            img {
+                opacity: 0.8;
+            }
+        }
+    }
+}
+.circle-item.pix-animate:nth-child(1) {
+  -webkit-transform: translate3d(0,0,10px);
+}
+.circle-item.pix-animate:nth-child(2) {
+  -webkit-transform: translate3d(0,0,12px);
+}
+.circle-item.pix-animate:nth-child(3) {
+  -webkit-transform: translate3d(0,0,14px);
+}
+.circle-item.pix-animate:nth-child(4) {
+  -webkit-transform: translate3d(0,0,16px);
+}
+.circle-item.pix-animate:nth-child(5) {
+  -webkit-transform: translate3d(0,0,18px);
+}

@@ -1,0 +1,19 @@
+.badge {
+    padding: 5px 10px;
+    &.pix-line {
+        background: transparent !important;
+        border-width: 2px;
+        border-style: solid;
+    }
+}
+@media (max-width: 540px) {
+    .badge {
+        white-space: normal !important;
+    }
+}
+/*
+* Right float Badges
+*/
+.pix-right-float-badges .pix-badge-element {
+    float: right;
+}

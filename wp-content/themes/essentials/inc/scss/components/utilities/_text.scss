@@ -1,0 +1,56 @@
+// Contextual colors
+
+.text-white { color: $white !important; }
+
+@each $color, $value in $theme-colors {
+  @include text-emphasis-variant(".text-#{$color}", $value);
+}
+
+:root {
+
+  @each $color, $value in $theme-colors {
+    --text-#{$color}: #{$value};
+    --text-#{$color}-light: #{rgba(lighten($value, 20%), 0.15)};
+  }
+  @each $color, $value in $opacity-values {
+    --text-dark-#{$color}: #{rgba(darken(desaturate(#{$primary}, 85%), 55%), #{$value})};
+    --text-light-#{$color}: #{rgba(#ffffff, #{$value})};
+  }
+  --text-body-default: #{$body-color};
+  --text-heading-default: #{$heading-color};
+  --pix-body-font: #{$font-family-base};
+  --pix-heading-font: #{$font-family-secondary};
+
+  @if $middle-gradient == 'yes' {
+     --text-gradient-primary: #{linear-gradient($gradient-direction, $gradient-primary-1, $gradient-primary-middle, $gradient-primary-2)};
+     --text-gradient-primary-light: #{linear-gradient($gradient-direction, rgba(lighten($gradient-primary-1, 20%), 0.15), rgba(lighten($gradient-primary-middle, 20%), 0.15), rgba(lighten($gradient-primary-2, 20%), 0.15))};
+  } @else {
+      --text-gradient-primary: #{linear-gradient($gradient-direction, $gradient-primary-1, $gradient-primary-2)};
+      --text-gradient-primary-light: #{linear-gradient($gradient-direction, rgba(lighten($gradient-primary-1, 20%), 0.15), rgba(lighten($gradient-primary-2, 20%), 0.15))};
+  }
+
+
+}
+
+
+
+@each $color, $value in $opacity-values {
+  @include text-emphasis-transparent-variant(".text-dark-#{$color}", darken(desaturate($primary, 85%), 55%), $value, "dark-#{$color}");
+  @include text-emphasis-transparent-variant(".text-light-#{$color}", #ffffff, $value, "light-#{$color}");
+  // @include text-emphasis-transparent-variant(".text-light-#{$color}", lighten(desaturate($primary, 30%), 40%), $value);
+  // @include text-emphasis-transparent-variant(".text-primary-#{$color}", $primary, $value, "primary-#{$color}");
+  // @include text-emphasis-transparent-variant(".text-success-#{$color}", $success, $value, "success-#{$color}");
+  // @include text-emphasis-transparent-variant(".text-info-#{$color}", $info, $value, "info-#{$color}");
+  // @include text-emphasis-transparent-variant(".text-warning-#{$color}", $warning, $value, "warning-#{$color}");
+  // @include text-emphasis-transparent-variant(".text-danger-#{$color}", $danger, $value, "danger-#{$color}");
+    // @each $c, $v in $theme-colors {
+    //     @include text-emphasis-transparent-variant(".text-#{$c}-#{$color}", $v, $value);
+    // }
+}
+
+
+.text-body { color: $body-color !important; }
+.text-muted { color: $text-muted !important; }
+
+.text-black-50 { color: rgba($black, .5) !important; }
+.text-white-50 { color: rgba($white, .5) !important; }
